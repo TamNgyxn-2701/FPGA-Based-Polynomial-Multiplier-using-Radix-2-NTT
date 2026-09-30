@@ -1,0 +1,30 @@
+# ModelSim generated files
+work/
+**/work/
+transcript
+**/transcript
+vsim.wlf
+**/vsim.wlf
+modelsim.ini
+
+# Quartus generated files
+db/
+**/db/
+incremental_db/
+**/incremental_db/
+output_files/
+**/output_files/
+simulation/
+**/simulation/
+greybox_tmp/
+**/greybox_tmp/
+
+# Temporary files
+*.log
+*.bak
+*.tmp
+*.wlf
+
+# Python cache
+__pycache__/
+*.pyc

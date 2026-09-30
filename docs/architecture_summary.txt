@@ -1,0 +1,15 @@
+Tên đề tài:
+Thiết kế bộ nhân đa thức bậc n-1 với n=128, sử dụng Radix-2 NTT độ dài 256 và Montgomery modulo q=12289 trên FPGA Cyclone II EP2C35F672C6, hiển thị kết quả trên LCD.
+
+Các khối chính:
+1. input_rom_128: chứa hệ số mẫu A[0..127], B[0..127].
+2. montgomery_mul_q12289: nhân modulo q bằng Montgomery.
+3. mod_arith_q12289: cộng/trừ modulo q.
+4. twiddle_rom_256: bảng hệ số xoay NTT/INTT dạng Montgomery.
+5. ntt_core_256: lõi Radix-2 NTT tuần tự, forward DIF và inverse DIT.
+6. poly_mul_ntt_core: FSM điều khiển toàn bộ phép nhân đa thức.
+7. lcd_text_formatter + lcd_16x2_driver: hiển thị hệ số kết quả trên LCD.
+8. top_poly_mul_lcd: top-level cho kit DE2.
+
+Luồng xử lý:
+IDLE -> LOAD -> START_NTT -> WAIT_NTT -> POINTWISE -> START_INTT -> WAIT_INTT -> FROM_MONT -> DONE.
